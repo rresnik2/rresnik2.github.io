@@ -1,0 +1,213 @@
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+}
+
+/* === REUSABLE CONTAINER === */
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* === NAVIGATION BAR === */
+.navbar {
+    background: #1d3557;
+    background-image: linear-gradient(to right, #e64a39, #e17b3d, #daa156, #d5c17f, #d8dcaf, #caddbb, #c2ddc7, #c1dbd0, #9cc4bf, #78adb3, #5a94a9, #457b9d);
+    color: white;
+    padding: 1rem 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+    font-size: rem;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #a8dadc;
+}
+
+#profile-img {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;  /* Makes it circular */
+    object-fit: cover;   /* Crops nicely to fit the circle */
+}
+
+/* === HOME SECTION === */
+.home {   
+     background-image: url('bellevuemoon.jpg');
+    
+    /* Customize properties for each image (comma-separated list) */
+    background-position: left top;
+    background-repeat: no-repeat;
+    background-size: cover; /* Example sizes */
+    color: white;
+    padding: 150px 0 100px;
+    text-align: center;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+.home h1 {
+    font-size: 3rem;
+    margin-bottom: .75rem;
+}
+
+.highlight {
+    color: #1d3557;
+}
+
+.tagline {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+/* === BUTTON STYLE === */
+.button {
+    display: block;
+    padding: 12px 30px;
+    background: #a8dadc;
+    color: #1d3557;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background 0.3s;
+    margin-left: 30%;
+    margin-right: 30%;
+    justify-content: center;
+    text-align: center;
+}
+
+.button:hover {
+    background: #457b9d;
+}
+
+/* === SECTIONS === */
+section {
+    padding: 80px 0;
+}
+
+.about {
+    background: #f4f4f4;
+}
+
+h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    color: #1d3557;
+}
+
+.about p {
+    font-size: 1.1rem;
+    max-width: 700px;
+    margin: 0 auto 1.5rem;
+    text-align: center;
+}
+
+/* === PROJECTS === */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 3rem;
+}
+
+.project-card {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+}
+
+.project-card h3 {
+    color: #1d3557;
+    margin-bottom: 15px;
+}
+
+.project-card p {
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.tech-stack {
+    display: flex;
+    padding: 10px 10px;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin: auto;
+    justify-content: center;
+}
+
+.tech {
+    background: #f1faee;
+    color: #1d3557;
+    padding: 5px 10px;
+    border-radius: 3px;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+/* === CONTACT === */
+.contact {
+    background: #1d3557;
+    color: white;
+    text-align: center;
+}
+
+.contact h2 {
+    color: white;
+}
+
+.contact p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+/* === RESPONSIVE DESIGN === */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none; /* We'll handle mobile menu with JS later */
+    }
+    
+    .home h1 {
+        font-size: 2rem;
+    }
+    
+    .project-grid {
+        grid-template-columns: 1fr;
+    }
+}
