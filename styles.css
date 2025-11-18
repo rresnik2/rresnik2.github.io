@@ -24,7 +24,7 @@ body {
     background: #1d3557;
     background-image: linear-gradient(to right, #e64a39, #e17b3d, #daa156, #d5c17f, #d8dcaf, #caddbb, #c2ddc7, #c1dbd0, #9cc4bf, #78adb3, #5a94a9, #457b9d);
     color: white;
-    padding: 1rem 0;
+    padding: 0.5rem 0;
     position: fixed;
     width: 100%;
     top: 0;
@@ -58,7 +58,8 @@ body {
     height: 100px;
     width: 100px;
     border-radius: 50%;  /* Makes it circular */
-    object-fit: cover;   /* Crops nicely to fit the circle */
+    object-fit:cover;
+    object-position: top;   /* Crops nicely to fit the circle */
 }
 
 /* === HOME SECTION === */
