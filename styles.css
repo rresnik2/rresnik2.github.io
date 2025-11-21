@@ -14,7 +14,7 @@ body {
 
 /* === REUSABLE CONTAINER === */
 .container {
-    max-width: 1000px;
+    max-width: 1500px;
     margin: 0 auto;
     padding: 0 20px;
 }
@@ -81,6 +81,12 @@ body {
 .home h1 {
     font-size: 3rem;
     margin-bottom: .75rem;
+}
+.home .container{
+    background-color: rgba(241,250,238, 0.2); 
+    padding: 20px;
+    border: 2px solid #f1faee;
+    border-radius: 20px;
 }
 
 .highlight {
@@ -163,7 +169,16 @@ h2 {
     color: #666;
     margin-bottom: 20px;
 }
-
+.button-stack {
+    display: flex;
+    padding: 10px 10px;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin: auto;
+    justify-content: center;
+    flex-direction: row;
+    
+}
 .tech-stack {
     display: flex;
     padding: 10px 10px;
