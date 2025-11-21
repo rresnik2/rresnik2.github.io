@@ -1,23 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reece Resnik - Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Martel+Sans:wght@200;300;400;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
     <!-- Navigation -->
     <nav class="navbar">
         <div class="container">
-            <a href="#home" ><img src="profileimage3.jpg" alt="Picture of Reece" id="profile-img" ></a>
+            <a href="#home"><img src="profileimage3.jpg" alt="Picture of Reece" id="profile-img"></a>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#contact">Contact</a></li>
-                <li><a href="https://github.com/rresnik2" target="_blank"><img src="github-mark-white.png" width="30px" height="30px"></a></li>
-                <li><a href="https://www.linkedin.com/in/reece-resnik/" target="_blank"><img src="InBug-White.png"width="30px" height="30px"></a></li>
+                <li><a href="https://github.com/rresnik2" target="_blank"><img src="github-mark-white.png"
+                            id="icons"></a></li>
+                <li><a href="https://www.linkedin.com/in/reece-resnik/" target="_blank"><img src="InBug-White.png"
+                            id="icons"></a></li>
             </ul>
         </div>
     </nav>
@@ -27,7 +34,7 @@
         <div class="container">
             <h1>Hi, I'm <span class="highlight">Reece</span></h1>
             <p class="location"> Seattle, WA</p>
-            <p class="tagline">Computer Science Student & Client Relations Enthusiast</p>
+            <p class="tagline">Computer Science Student • Client-focused Development</p>
             <a href="#projects" class="button">See My Work</a>
         </div>
     </section>
@@ -37,12 +44,15 @@
         <div class="container">
             <h2>About Me</h2>
             <p>
-                I'm a CS student at University of Washington - Tacoma, love to expand my skills while fostering community. Outside of school and researching, 
+                I'm a CS student at University of Washington - Tacoma, love to expand my skills while fostering
+                community. Outside of school and researching,
                 I like to bike and snowboard!
             </p>
             <p>
-                My experience varies quite a lot over different languages and technologies. I have programmed OpenCV on a RaspberryPi, implemented
-                a database design on SQL Server, and designing a web application with React and Firebase. Actively creating projects to reflect
+                My experience varies quite a lot over different languages and technologies. I have programmed OpenCV on
+                a RaspberryPi, implemented
+                a database design on SQL Server, and designing a web application with React and Firebase. Actively
+                creating projects to reflect
                 the skills I've learned from my coursework.
             </p>
         </div>
@@ -52,13 +62,17 @@
     <section id="projects" class="projects">
         <div class="container">
             <h2>My Projects</h2>
-            
+
             <div class="project-grid">
-                <div  class="project-card">
+                <div class="project-card">
                     <h3>Leasing Assistant</h3>
-                    <p>An AI-powered assistant that helps leasing agents get instant insights from their lead database using natural language queries.</p>
+                    <p>An AI-powered assistant that helps leasing agents get instant insights from their lead database
+                        using natural language queries.
+                        Is an added feature to the Leasing CRM.
+                    </p>
                     <div class="button-stack">
-                        <a href="https://leasing-ai-assistant.rresnik2.workers.dev/" target="_blank" class="button">API Endpoint</a>
+                        <a href="https://leasing-ai-assistant.rresnik2.workers.dev/" target="_blank" class="button">API
+                            Endpoint</a>
                         <a href="https://leasing-crm.vercel.app" target="_blank" class="button">Demo in the CRM</a>
                     </div>
                     <div class="tech-stack">
@@ -68,11 +82,15 @@
                         <span class="tech">JavaScript</span>
                     </div>
                 </div>
-                <div  class="project-card">
+                <div class="project-card">
                     <h3>Leasing CRM</h3>
-                    <p>Web application for tracking leasing leads, status management and data persistence to Firebase. Lead score badge is provided
+                    <p>Web application for tracking leasing leads, status management and data persistence to Firebase.
+                        Lead score badge is provided
                         Python backend. Active Project.</p>
-                    <a href="https://leasing-crm.vercel.app" target="_blank" class="button">Live Demo</a>
+                    <div class="button-stack">
+                        <a href="https://leasing-crm.vercel.app" target="_blank" class="button">Live Demo</a>
+                    </div>
+
                     <div class="tech-stack">
                         <span class="tech">React</span>
                         <span class="tech">JavaScript</span>
@@ -109,4 +127,5 @@
 
     <script src="script.js"></script>
 </body>
+
 </html>
