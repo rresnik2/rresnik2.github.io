@@ -7,7 +7,8 @@
     <title>Reece Resnik - Portfolio</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Martel+Sans:wght@200;300;400;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Martel+Sans:wght@200;300;400;600;700;800;900&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 
@@ -34,7 +35,7 @@
         <div class="container">
             <h1>Hi, I'm <span class="highlight">Reece</span></h1>
             <p class="location"> Seattle, WA</p>
-            <p class="tagline">Computer Science Student • Client-focused Development</p>
+            <p class="tagline">Computer Science Student • Product Enthusiast</p>
             <a href="#projects" class="button">See My Work</a>
         </div>
     </section>
@@ -49,11 +50,10 @@
                 I like to bike and snowboard!
             </p>
             <p>
-                My experience varies quite a lot over different languages and technologies. I have programmed OpenCV on
-                a RaspberryPi, implemented
-                a database design on SQL Server, and designing a web application with React and Firebase. Actively
-                creating projects to reflect
-                the skills I've learned from my coursework.
+                My experience varies a lot over different languages and technologies. I have programmed with the OpenCV library on
+                a RaspberryPi, implemented a database design on SQL Server, and recently a web application with an AI-powered assitant. Actively
+                creating projects to reflect the skills I've learned from my coursework. 
+                Up next, I'm brainstorming an application that uses OpenCV and has a gaming aspect.
             </p>
         </div>
     </section>
@@ -66,10 +66,13 @@
             <div class="project-grid">
                 <div class="project-card">
                     <h3>Leasing Assistant</h3>
-                    <p>An AI-powered assistant that helps leasing agents get instant insights from their lead database
-                        using natural language queries.
-                        Is an added feature to the Leasing CRM.
-                    </p>
+                    <ul>
+                        <li>Solved inefficient searching through lead profiles by building a database assistant for leasing agents.</li>
+                        <li>Learned that explicit language and placing critical constraints first are essential when prompting LLMs,
+                        resulting in fewer hallucinations and more accurate responses.</li>
+                        <li>Chose Gemma 3 over Llama 3.3 after testing showed it hallucinated less and followed instructions more
+                        reliably.</li>
+                    </ul>
                     <div class="button-stack">
                         <a href="https://leasing-ai-assistant.rresnik2.workers.dev/" target="_blank" class="button">API
                             Endpoint</a>
@@ -84,9 +87,13 @@
                 </div>
                 <div class="project-card">
                     <h3>Leasing CRM</h3>
-                    <p>Web application for tracking leasing leads, status management and data persistence to Firebase.
-                        Lead score badge is provided
-                        Python backend. Active Project.</p>
+                    <ul>
+                        <li>Web application for tracking leasing leads, lead scores and status management.</li>
+                        <li>Deployed frontend, backend, and AI worker across Vercel, Render, and Cloudflare, using environment
+                        variables to secure API keys in public repositories</li>
+                        <li>Resolved Firebase SDK incompatibility with Cloudflare Workers by refactoring to use
+                         Firestore's REST API</li>
+                    </ul>
                     <div class="button-stack">
                         <a href="https://leasing-crm.vercel.app" target="_blank" class="button">Live Demo</a>
                     </div>
@@ -115,13 +122,48 @@
             </div>
         </div>
     </section>
+    <section id="experience" class="experience">
+        <div class="container">
+            <h2>Experience</h2>
+
+            
+                <div class="experience-card">
+                    <span class="experience-title">
+                        <h3>Arlo Apartments</h3>
+                        <h4>- Leasing Professional (Aug 2024 – Aug 2025)</h4>
+                    </span>
+                    <ul>
+                        <li>Gathered requirements from prospects with unclear needs, translating them into concrete next steps and recommendations.</li>
+                        <li>Tracked and triaged resident requests in the CRM to ensure maintenance saw to a resolution in the expected timeline.</li>
+                        <li>Ensured leaseholder data accuracy by creating checklists to verify lease details before submission.</li>
+                        <li>Coordinated sponsors and vendors for resident events, managing handoffs between shifts.</li>
+                    </ul>
+                </div>
+            
+            
+                <div class="experience-card">
+                    <span class="experience-title">
+                        <h3>Whole Foods Market</h3>
+                        <h4>- Customer Service Supervisor (Oct 2022 - Aug 2024)</h4>
+                    </span>
+                    <ul>
+                        <li>Led front‑end operations; coached and scheduled team members; handled escalations and cross‑department comms.</li>
+                        <li>Streamlined checkout/guest support workflows to reduce wait times and improve store readiness.</li>
+                    </ul>
+                </div>
+            
+        </div>
+    </section>
 
     <!-- Contact Section -->
     <section id="contact" class="contact">
         <div class="container">
             <h2>Get In Touch</h2>
             <p>I'm looking for internship opportunities and interesting projects!</p>
-            <a href="mailto:resnikr@uw.edu" class="button">Email Me</a>
+            <span class="button-stack">
+                <a href="mailto:resnikr@uw.edu" target="_blank" class="button">Email Me</a>
+                <a href="Reece Resnik Resume Nov 2025.pdf" target="_blank" class="button">Resume</a>
+            </span>
         </div>
     </section>
 

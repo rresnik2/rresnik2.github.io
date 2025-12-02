@@ -73,7 +73,7 @@ handleScroll();
 // Highlight which section is currently being viewed
 
 const sections = document.querySelectorAll('section');
-const navLinks = document.querySelectorAll('.nav-links a');
+// const navLinks = document.querySelectorAll('.nav-links a');
 
 window.addEventListener('scroll', () => {
     let current = '';
