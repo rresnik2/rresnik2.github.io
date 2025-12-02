@@ -22,8 +22,7 @@ body {
 /* === NAVIGATION BAR === */
 .navbar {
     background: #1d3557;
-    /* background-image: linear-gradient(to right, #e64a39, #e17b3d, #daa156, #d5c17f, #d8dcaf, #caddbb, #c2ddc7, #c1dbd0, #9cc4bf, #78adb3, #5a94a9, #457b9d); */
-     background-image: linear-gradient(to left, #b9786c, #b57d72, #b28178, #ad867e, #a98a84, #a18280, #997a7b, #907277, #7e5e6e, #654c68, #453e62, #143259);
+    background-image: linear-gradient(to left, #b9786c, #b57d72, #b28178, #ad867e, #a98a84, #a18280, #997a7b, #907277, #7e5e6e, #654c68, #453e62, #143259);
     color: white;
     padding: 0.5rem 0;
     position: fixed;
@@ -205,12 +204,6 @@ h2 {
 
 }
 /* === EXPERIENCE === */
-/* .experience-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    margin-top: 3rem;
-} */
 
 .experience-card {
     background: whitesmoke;
@@ -243,7 +236,7 @@ h2 {
 }
 /* === CONTACT === */
 .contact {
-    /* background-image: url('rainiertrain.jpg'); */
+
     background-image: linear-gradient(to left top, #dedcdc, #d9d2d1, #d4c8c6, #cfbeba, #c9b4ad, #bea39e, #b39390, #a88383, #916977, #73536e, #4c4166, #143259);
     background-position: top;
     background-size:cover;
