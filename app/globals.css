@@ -1,26 +1,270 @@
 @import "tailwindcss";
-
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@source not "../public";
+@plugin "daisyui" {
+  themes: all;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+@theme {
+  --color-vermilion: #e4402b;
+  /* For small text on paper (4.7:1); vermilion's 3.7:1 is only enough for
+     large type. Rules, markers and borders keep the brighter one. */
+  --color-vermilion-deep: #c63722;
+  --color-paper: #F4F2ED;
+  --color-ink: #141414;
+  --color-muted: #6B6B66;
+  --font-serif: var(--font-instrument-serif), ui-serif, Georgia, serif;
+  --font-body: var(--font-text), Georgia, serif;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  /* Gallery pop-up: the photo slides in from --lightbox-offset (0 = fade only) */
+  --animate-lightbox-in: lightbox-in 300ms ease-out;
+  @keyframes lightbox-in {
+    from {
+      opacity: 0;
+      translate: var(--lightbox-offset, 0);
+    }
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+.name-underline {
+  position: relative;
+}
+.name-underline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 100%;
+  height: 1.5px;
+  background: var(--color-vermilion);
+  transform: scaleX(0);
+  transition: transform 0.35s ease;
+  transform-origin: center; 
+}
+/* Hover underlines only where there's a real pointer: on a touch screen a tap
+   counts as hovering and would leave the underline stuck on */
+@media (hover: hover) {
+  .name-underline:hover::after { transform: scaleX(1); }
+}
+
+.link-underline {
+  position: relative;
+}
+
+.link-underline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 100%;
+  height: 1.5px;
+  background: var(--color-vermilion);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.35s ease;
+}
+
+@media (hover: hover) {
+  .link-underline:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+}
+/* The page you're on keeps its underline in the menu */
+.link-underline[aria-current="page"]::after {
+  transform: scaleX(1);
+}
+
+/* At least a 44px square to tap on a small link or button, without changing
+   its layout: an invisible ::before reaches past it as far as needed */
+.tap-target {
+  position: relative;
+}
+.tap-target::before {
+  content: "";
+  position: absolute;
+  inset-block: min(0px, (100% - 44px) / 2);
+  inset-inline: min(0px, (100% - 44px) / 2);
+}
+/* Stop the page scrolling behind an open modal (e.g. the gallery lightbox) */
+html:has(dialog[open]:modal) {
+  overflow: hidden;
+}
+
+/* Page transitions, started by navigateWithTransition() in
+   lib/page-transition.ts. It sets data-nav-direction on <html>; the content
+   inside <PageTransition> is named "page" and slides, while the backgrounds
+   (part of the root snapshot) crossfade underneath. */
+:root {
+  --page-out: 180ms; /* old page leaving */
+  --page-in: 360ms; /* new page arriving, starts once the old one is gone */
+  --page-total: calc(var(--page-out) + var(--page-in));
+  --page-ease-in: cubic-bezier(0.4, 0, 1, 1); /* accelerates away, moving from the first frames */
+  --page-ease-out: cubic-bezier(0.22, 1, 0.36, 1); /* settles into place */
+  --bg-fade: var(--page-total); /* old background crossfading to the new one */
+}
+/* Both snapshots are full width with the same top edge, so there's nothing
+   to morph. Without this the browser animates the group's height between the
+   two pages on the main thread for the whole transition. */
+html[data-nav-direction]::view-transition-group(page) {
+  animation: none;
+}
+/* While the new page is being captured and animated, render only its first
+   screen. Content below the fold (the gallery especially) would otherwise
+   load and decode photos mid-slide; it renders once the slide finishes. */
+html[data-nav-clip] .vt-page {
+  max-height: 100vh;
+  overflow: clip;
+}
+/* The backgrounds crossfade by fading the new one in over the old one. Every
+   page has an opaque full-screen backdrop, so this looks the same as the
+   default plus-lighter crossfade, without rendering each pair into an
+   offscreen group and blending it every frame (costly in Firefox, very costly
+   when it renders without the GPU). The root snapshots are both the size of
+   the viewport, so their group has nothing to morph either. */
+html[data-nav-direction]::view-transition-group(root) {
+  animation: none;
+}
+html[data-nav-direction]::view-transition-image-pair(root),
+html[data-nav-direction]::view-transition-image-pair(page),
+html[data-nav-direction]::view-transition-image-pair(site-header),
+html[data-nav-direction]::view-transition-image-pair(richie),
+html[data-nav-direction]::view-transition-image-pair(richie-paw) {
+  isolation: auto;
+}
+html[data-nav-direction]::view-transition-old(root),
+html[data-nav-direction]::view-transition-new(root) {
+  mix-blend-mode: normal;
+}
+/* The old background stays opaque underneath, then drops out once covered */
+html[data-nav-direction]::view-transition-old(root) {
+  animation: var(--bg-fade) step-end both vt-hide;
+}
+html[data-nav-direction]::view-transition-new(root) {
+  animation: var(--bg-fade) ease both vt-fade-in;
+}
+@keyframes vt-fade-in {
+  from {
+    opacity: 0;
+  }
+}
+@keyframes vt-hide {
+  to {
+    opacity: 0;
+  }
+}
+/* The old page slides fully off one side, then the new page slides in from
+   the other. Both stay opaque the whole way. */
+html[data-nav-direction]::view-transition-old(page),
+html[data-nav-direction]::view-transition-new(page) {
+  /* The default plus-lighter blend is for crossfades; it would brighten the seam */
+  mix-blend-mode: normal;
+}
+html[data-nav-direction]::view-transition-old(page) {
+  animation: var(--page-out) var(--page-ease-in) both slide-out;
+}
+html[data-nav-direction]::view-transition-new(page) {
+  animation: var(--page-in) var(--page-ease-out) var(--page-out) both slide;
+}
+html[data-nav-direction="forward"]::view-transition-old(page) {
+  --slide-offset: -100vw;
+}
+html[data-nav-direction="forward"]::view-transition-new(page) {
+  --slide-offset: 100vw;
+}
+html[data-nav-direction="back"]::view-transition-old(page) {
+  --slide-offset: 100vw;
+}
+html[data-nav-direction="back"]::view-transition-new(page) {
+  --slide-offset: -100vw;
+}
+@keyframes slide-out {
+  to {
+    translate: var(--slide-offset);
+  }
+}
+@keyframes slide {
+  from {
+    translate: var(--slide-offset);
+  }
+  to {
+    translate: 0;
+  }
+}
+
+/* Keep the header still while the page content slides */
+::view-transition-group(site-header) {
+  animation: none;
+  z-index: 100;
+}
+::view-transition-old(site-header) {
+  display: none;
+}
+::view-transition-new(site-header) {
+  animation: none;
+}
+
+/* Richie (lib/richie) is captured on his own when he's on screen, above the
+   sliding pages but below the header. His live image keeps animating; the
+   engine puts him at his new spot before the capture and sets --richie-dx/dy
+   to where he was, so he drifts there while running as the pages swap. */
+::view-transition-group(richie) {
+  animation: none;
+  z-index: 90;
+}
+html[data-richie-run]::view-transition-group(richie) {
+  animation: var(--page-total) var(--page-ease-out) both richie-drift;
+}
+@keyframes richie-drift {
+  from {
+    translate: var(--richie-dx, 0) var(--richie-dy, 0);
+  }
+}
+/* The paw button stays put above everything */
+::view-transition-group(richie-paw) {
+  animation: none;
+  z-index: 100;
+}
+::view-transition-old(richie),
+::view-transition-old(richie-paw) {
+  display: none;
+}
+::view-transition-new(richie),
+::view-transition-new(richie-paw) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+@media print {
+  /* One letter page, just the content (the resume prints from /resume) */
+  @page {
+    size: letter;
+    margin: 0.5in;
+  }
+  /* The theme's own background outranks plain html/body, and its dark colour
+     scheme would tint the page margins */
+  html,
+  body {
+    background: white !important;
+    color-scheme: light !important;
+  }
+  [data-richie-stage],
+  [data-richie-paw],
+  [data-site-header],
+  [data-backdrop] {
+    display: none;
+  }
+}
+
+/* Let clicks reach the page while a transition is running */
+::view-transition {
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(*),
+  ::view-transition-new(*),
+  ::view-transition-group(*) {
+    animation-duration: 0s !important;
+    animation-delay: 0s !important;
+  }
 }
