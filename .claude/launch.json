@@ -11,15 +11,16 @@
       "port": 3000
     },
     {
-      "name": "next-prod",
+      "name": "static-export",
       "runtimeExecutable": "npx",
       "runtimeArgs": [
-        "next",
-        "start",
-        "-p",
-        "3001"
+        "--yes",
+        "serve",
+        "out",
+        "--listen",
+        "3002"
       ],
-      "port": 3001
+      "port": 3002
     }
   ]
 }
