@@ -8,6 +8,24 @@ import PageTransition from "@/components/page-transition";
 
 const projects: Project[] = [
   {
+    title: "Overload",
+    description: "Offline-first strength training log with progress forecasts and evidence-based coaching.",
+    link: "https://overloadfit.vercel.app",
+    technologies: ["Next.js", "TypeScript", "Prisma", "Dexie", "Claude API", "PostgreSQL", "Tailwind CSS", "Better Auth", "Playwright"],
+    buildStatus: "success",
+    bulletPoints: [
+      "Built an offline-first logger: sets save to IndexedDB and sync through an outbox.",
+      "Designed a weight-plate dial for phone navigation with rest timers on its rim.",
+      "Wrote 11 evidence-based insight rules and a weekly review from the Claude API.",
+      "Scoped all data to the signed-in user with Better Auth, passkeys and isolation tests.",
+      "Tested with 4,500+ unit tests plus Playwright end-to-end and visual tests.",
+    ],
+    kind: "Web app (PWA)",
+    image: "/OverloadCapture.png",
+    lighthouse: 99,
+    linkType: "live",
+  },
+  {
     title: "Leasing CRM",
     description: "Web application for tracking leasing leads, lead scores and status management.",
     link: "https://leasing-crm.vercel.app/",
