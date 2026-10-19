@@ -10,7 +10,7 @@ const projects: Project[] = [
   {
     title: "Overload",
     description: "Offline-first strength training log with progress forecasts and evidence-based coaching.",
-    link: "https://overloadfit.vercel.app",
+    link: "https://overload67.com",
     technologies: ["Next.js", "TypeScript", "Prisma", "Dexie", "Claude API", "PostgreSQL", "Tailwind CSS", "Better Auth", "Playwright"],
     buildStatus: "success",
     bulletPoints: [
