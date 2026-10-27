@@ -12,7 +12,7 @@ export const NAME = "Reece Resnik";
 export const CONTACT: ContactItem[] = [
   { text: "Seattle, WA" },
   { text: "(775) 267-7751", href: "tel:+17752677751" },
-  { text: "resnikr@uw.edu", href: "mailto:resnikr@uw.edu" },
+  { text: "rresnik2@gmail.com", href: "mailto:rresnik2@gmail.com" },
   { text: "linkedin.com/in/reece-resnik", href: "https://www.linkedin.com/in/reece-resnik/" },
   { text: "github.com/rresnik2", href: "https://github.com/rresnik2" },
 ];
