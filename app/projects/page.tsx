@@ -8,6 +8,24 @@ import PageTransition from "@/components/page-transition";
 
 const projects: Project[] = [
   {
+    title: "Portfolio Website",
+    description: "This site: a personal portfolio with flip-card projects, a photo gallery and an animated mascot.",
+    link: "https://github.com/rresnik2/rresnik2.github.io",
+    technologies: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Canvas", "GitHub Pages"],
+    buildStatus: "success",
+    bulletPoints: [
+      "Built the site on Next.js and Tailwind CSS, exported as static pages for GitHub Pages.",
+      "Made flip cards that show a project overview on the front and full details on the back.",
+      "Animated Richie, a canvas sprite mascot with its own engine, that perches on the page.",
+      "Added page transitions and a photo gallery with a custom image loader.",
+    ],
+    kind: "Website",
+    image: "/PortfolioCapture.png",
+    lighthouse: 67,
+    linkType: "code",
+    artifact: 1,
+  },
+  {
     title: "Overload",
     description: "Offline-first strength training log with progress forecasts and evidence-based coaching.",
     link: "https://overload67.com",
@@ -24,6 +42,7 @@ const projects: Project[] = [
     image: "/OverloadCapture.png",
     lighthouse: 99,
     linkType: "live",
+    artifact: 2,
   },
   {
     title: "Leasing CRM",
@@ -42,6 +61,23 @@ const projects: Project[] = [
     image: "/LeasingCRMCapture.png",
     lighthouse: 94,
     linkType: "live",
+    artifact: 3,
+  },
+  {
+    title: "Fuel Port",
+    description: "Native Apple silicon port of the 2009 open-world off-road racer FUEL, built on a new Metal engine.",
+    technologies: ["C++", "Objective-C++", "Metal", "Jolt Physics", "CMake", "Core Audio", "GameController"],
+    buildStatus: "in progress",
+    bulletPoints: [
+      "Decoded the game's archives, textures, meshes and 140 km world heightfield from its data files.",
+      "Wrote a Metal renderer for vehicles, terrain, sky and streamed world objects.",
+      "Tuned Jolt Physics driving for 72 vehicles from the game's own mass, engine and gearbox data.",
+      "Rebuilt FUEL's race logic and AI opponents, with ghost lines decoded from the executable.",
+      "Packaged a double-clickable macOS launcher that ships no game files.",
+    ],
+    kind: "Native macOS game port",
+    image: "/FuelPortCapture.jpg",
+    artifact: 4,
   },
   {
     title: "Agent Skills Manager",

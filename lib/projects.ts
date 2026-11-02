@@ -5,12 +5,13 @@ export type Project = {
   description: string;
   technologies: string[];
   bulletPoints: string[];
-  link: string;
+  link?: string;
   buildStatus: string;
   kind?: string;             
   image?: string;             
   lighthouse?: number;        
   linkType?: "live" | "code"; 
+  artifact?: number;          
 };
 
 export function getProjects() {

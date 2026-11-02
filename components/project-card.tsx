@@ -13,7 +13,7 @@ export default function ProjectCard({ project }: { project: Project }) {
 
   const isCode = project.linkType === "code";
   const isLive = !isCode && project.buildStatus === "success";
-  const status = isCode ? "Source code" : isLive ? "Live" : "Offline";
+  const status = isCode ? "Source code" : isLive ? "Live" : project.buildStatus === "in progress" ? "In progress" : "Offline";
   const linkLabel = isCode ? "View code" : "View project";
 
   useEffect(() => {
@@ -61,6 +61,12 @@ export default function ProjectCard({ project }: { project: Project }) {
 
           <div className="flex items-center justify-between font-body">
             <p className="text-xs text-muted">
+              {project.artifact != null ? (
+                <>
+                  Artifact #{project.artifact}
+                  <span className="mx-1.5 text-vermilion-deep">/</span>
+                </>
+              ) : null}
               {project.kind ?? "Project"}
               <span className="mx-1.5 text-vermilion-deep">/</span>
               {status}
@@ -95,14 +101,16 @@ export default function ProjectCard({ project }: { project: Project }) {
                 Lighthouse
               </p>
             ) : null}
-            <a
-              href={project.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`${cta} ml-auto`}
-            >
-              {linkLabel} →
-            </a>
+            {project.link ? (
+              <a
+                href={project.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`${cta} ml-auto`}
+              >
+                {linkLabel} →
+              </a>
+            ) : null}
           </div>
         </div>
 
@@ -132,14 +140,16 @@ export default function ProjectCard({ project }: { project: Project }) {
           <p className="text-sm text-muted font-body">{project.technologies.join(", ")}</p>
 
           <div className="mt-auto flex justify-end border-t border-ink/10 pt-3">
-            <a
-              href={project.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={cta}
-            >
-              {linkLabel} →
-            </a>
+            {project.link ? (
+              <a
+                href={project.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={cta}
+              >
+                {linkLabel} →
+              </a>
+            ) : null}
           </div>
         </div>
       </div>
