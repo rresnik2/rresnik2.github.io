@@ -11,7 +11,8 @@ export type Project = {
   image?: string;             
   lighthouse?: number;        
   linkType?: "live" | "code"; 
-  artifact?: number;          
+  artifact?: number;
+  reflection?: string;
 };
 
 export function getProjects() {

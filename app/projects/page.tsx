@@ -21,7 +21,7 @@ const projects: Project[] = [
     ],
     kind: "Website",
     image: "/PortfolioCapture.png",
-    lighthouse: 67,
+    lighthouse: 96,
     linkType: "code",
     artifact: 1,
   },
@@ -66,6 +66,7 @@ const projects: Project[] = [
   {
     title: "Fuel Port",
     description: "Native Apple silicon port of the 2009 open-world off-road racer FUEL, built on a new Metal engine.",
+    link: "https://github.com/rresnik2/fuel-macos/tree/main",
     technologies: ["C++", "Objective-C++", "Metal", "Jolt Physics", "CMake", "Core Audio", "GameController"],
     buildStatus: "in progress",
     bulletPoints: [
@@ -75,8 +76,11 @@ const projects: Project[] = [
       "Rebuilt FUEL's race logic and AI opponents, with ghost lines decoded from the executable.",
       "Packaged a double-clickable macOS launcher that ships no game files.",
     ],
+    reflection:
+      "So far this week, I’ve been excited to work with new frameworks and a programming language that I’ve never used before. Ghidra and REA are repositories that can be used together for reverse engineering. Ghidra is a decompiler, and REA is an MCP that connects Claude to Ghidra and allows Claude to investigate and map code. I had issues keeping Claude on track using REA. It could get a working game going, but then it would want to continue developing on its own without fully investigating. The game still needs work; ideally, it will be polished and have online multiplayer.",
     kind: "Native macOS game port",
     image: "/FuelPortCapture.jpg",
+    linkType: "code",
     artifact: 4,
   },
   {

@@ -131,6 +131,12 @@ export default function ProjectCard({ project }: { project: Project }) {
             </button>
           </div>
 
+          {project.reflection ? (
+            <p className="border-l-2 border-vermilion pl-3 font-body text-sm italic leading-relaxed text-muted">
+              {project.reflection}
+            </p>
+          ) : null}
+
           <ul className="list-disc space-y-2 pl-4 font-body leading-relaxed marker:text-vermilion">
             {project.bulletPoints.map((point) => (
               <li key={point}>{point}</li>
