@@ -87,8 +87,8 @@ export const EXPERIENCE: Entry[] = [
     meta: "Eclipse Staffing LLC, Seattle, WA",
     dates: "Oct 2025 – Present",
     points: [
-      "Automated recurring leasing workflows with Python scripts and AI tooling, cutting manual data entry out of daily operations.",
-      "Ramped onto new property systems and requirements across multiple sites during management transitions.",
+      "Automated recurring leasing workflows with Python scripts and AI tooling, cutting manual data entry for management onboarding operations.",
+      "Support daily operations at management offices temporarily (i.e., tours, resident assistance).",
     ],
   },
   {
