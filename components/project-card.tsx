@@ -27,6 +27,11 @@ export default function ProjectCard({ project }: { project: Project }) {
   }
 
   const face = "col-start-1 row-start-1 flex flex-col gap-3 border border-ink/10 bg-paper p-5 backface-hidden";
+  // Both faces share one grid cell, so the cell is as tall as the taller face.
+  // contain-size makes the face on the far side count as zero height, so the
+  // card keeps the size of its front and only grows when the back is open and
+  // its bullet points need more room.
+  const faceHidden = "contain-size overflow-hidden";
   // Small text, so tap-target (globals.css) gives a finger a bigger target
   const flipButton = "link-underline tap-target cursor-pointer text-xs text-muted transition-colors hover:text-ink";
   const cta = "link-underline tap-target text-sm hover:text-vermilion";
@@ -39,7 +44,7 @@ export default function ProjectCard({ project }: { project: Project }) {
         }`}
       >
         {/* Front */}
-        <div inert={flipped} className={face}>
+        <div inert={flipped} className={`${face} ${flipped ? faceHidden : ""}`}>
           {project.image ? (
             <a
               href={project.link}
@@ -115,7 +120,7 @@ export default function ProjectCard({ project }: { project: Project }) {
         </div>
 
         {/* Back */}
-        <div inert={!flipped} className={`${face} rotate-y-180`}>
+        <div inert={!flipped} className={`${face} rotate-y-180 ${flipped ? "" : faceHidden}`}>
           <div className="flex items-center justify-between font-body">
             <p className="text-xs text-muted">
               What I built <span className="mx-1.5 text-vermilion-deep">/</span> {project.title}
