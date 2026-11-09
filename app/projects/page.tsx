@@ -82,7 +82,7 @@ const projects: Project[] = [
       "Packaged a double-clickable macOS launcher that ships no game files, coordinating the work with Claude Code and many parallel AI agents.",
     ],
     reflection:
-      "So far this week, I’ve been excited to work with new frameworks and a programming language that I’ve never used before. Ghidra and REA are repositories that can be used together for reverse engineering. Ghidra is a decompiler, and REA is an MCP that connects Claude to Ghidra and allows Claude to investigate and map code. I had issues keeping Claude on track using REA. It could get a working game going, but then it would want to continue developing on its own without fully investigating. The game still needs work; ideally, it will be polished and have online multiplayer.",
+      "This taught me a lot about the current limitations of Claude Opus. Porting over a whole game is a lot of context for the model to track, so the process requires many small steps. Every function had to be found, decoded, then covered (ported, absorbed, or replaced). About 51.5% (57.3% by code size) of functions are covered. I learned when to draw the line between porting and replacing the original code. It was most important to directly port all the world terrain, objects, rendering, UI, AI, physics, and career path. While that may sound like the whole game, it made more sense to later add additional haptics, adaptive triggers for the controller, as well as a nitrous system and vehicle upgrades.",
     kind: "Native macOS game port",
     image: "/FuelPortCapture.jpg",
     linkType: "code",
