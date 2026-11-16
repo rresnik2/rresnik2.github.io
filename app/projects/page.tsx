@@ -89,6 +89,27 @@ const projects: Project[] = [
     artifact: 4,
   },
   {
+    title: "GameTime",
+    description: "Vertical, swipe-to-discover feed of live gaming streams for iOS, Android and web from one Expo codebase.",
+    link: "https://gametime-gold.vercel.app",
+    technologies: ["Expo", "React Native", "TypeScript", "Expo Router", "Supabase", "PostgreSQL", "EAS", "Vercel", "GitHub Actions", "Jest", "pgTAP"],
+    buildStatus: "in progress",
+    bulletPoints: [
+      "Set up one Expo SDK 58 codebase that ships to iOS, Android and the web, with a five-tab layout that becomes a sidebar on wide screens.",
+      "Designed the Postgres schema in Supabase with row-level security, covered by 16 pgTAP tests for policies such as blocked users.",
+      "Locked stream status, playback info and viewer counts to the server with column-level privileges, so only the video webhook can set them.",
+      "Built a dark theme from design tokens and base components: the LIVE pill, game chips, avatars and buttons.",
+      "Ran CI on every pull request (lint, typecheck, Jest, web export, migrations and RLS tests) with a protected main branch.",
+      "Deployed web previews per pull request on Vercel and native builds through EAS profiles, with decision records for each product choice.",
+    ],
+    reflection:
+      "The project is teaching me a lot about making a full release application that is available to everyone and requires a lot of backend functions to serve the client. I’m excited to work with the new framework this week.",
+    kind: "Cross-platform app",
+    image: "/GameTimeCapture.jpg",
+    linkType: "live",
+    artifact: 5,
+  },
+  {
     title: "Agent Skills Manager",
     description: "Web application for posting and managing agent skills.",
     link: "https://agent-skills-manager-theta.vercel.app/",
