@@ -102,6 +102,8 @@ const projects: Project[] = [
       "Ran CI on every pull request (lint, typecheck, Jest, web export, migrations and RLS tests) with a protected main branch.",
       "Deployed web previews per pull request on Vercel and native builds through EAS profiles, with decision records for each product choice.",
     ],
+    reflection:
+      "The project is teaching me a lot about making a full release application that is available to everyone and requires a lot of backend functions to serve the client. I’m excited to work with the new framework this week.",
     kind: "Cross-platform app",
     image: "/GameTimeCapture.jpg",
     linkType: "live",
